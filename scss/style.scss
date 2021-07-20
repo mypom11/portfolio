@@ -39,8 +39,26 @@
 @function vh($s){
     @return $s/10.24 +vh;
 }
+
+@keyframes aboutScale{
+    0%{
+        transform: scale(1);
+        z-index: 0;
+    }
+    50%{
+        transform: scale(1.5);
+        z-index: 40;
+    }
+    100%{
+        transform: scale(1);
+        z-index: 0;
+    }
+
+
+}
+
 body{
-    overflow-X: hidden;
+    overflow: hidden;
     font-size: rem(20);
     font-family: 'NanumSquare',sans-serif;
     @include size(100vw, 100vh);
@@ -53,7 +71,7 @@ body{
     position: relative;
     @include size;
     background: #334257;
-    padding: 80px 0;
+    padding: vh(80) 0;
     header{
         @include position(vh(90), vw(320), $p:fixed);
         z-index: 30;
@@ -63,12 +81,17 @@ body{
             li{
                 margin-right: em(50,20);
                 position: relative;
+                cursor: pointer;
+                a{
+                    pointer-events: none;
+                }
                 .under_bar{
                     @include position(100%,0);                    
                     background: #39A2DB;
                     width: 0;
                     height: em(5,20);
                     transition: 0.5s ease-in;
+                    pointer-events: none;
                 }
                 &.on{
                     .under_bar{
@@ -88,16 +111,32 @@ body{
         border-top: 1px solid #476072;
         border-bottom: 1px solid #476072;
         @include size;
+        section{
+            opacity: 0;
+            z-index: 0;
+            transition: 0.5s ease-in;
+            &.on{
+                opacity: 1;
+                z-index: 10;
+            }
+        }
         #about{
             display: block;
             height: 100%;
             #pages{
                 @include size(400vw, 100%);
                 display: flex;
+                @include position(0, 0, relative);
+                transition: 0.5s;
                 li{
                     width: 100vw;
                     height: 100%;
                     @include flex;
+                    transition: 0.5s;
+                    transform: scale(1);
+                    &.on{
+                        animation: aboutScale 0.8s ease-in forwards;
+                    }
                     .img{
                         position: relative;
                         @include size(vw(1280),vh(700));
@@ -119,8 +158,8 @@ body{
             }
         }
         #project{
-            display: none;
-            position: relative;
+            display: block;
+            @include position(0,0);
             @include size;
             .slider{
                 @include position(50%, vw(160));
@@ -129,7 +168,7 @@ body{
                 perspective: 2000px;
                 .window{
                     @include size(vw(600), vh(400));
-                    background: rgba(71, 96, 114, 0.5);
+                    background: rgba(71, 96, 114, 0.4);
                     border-radius: 10px;
                     &.page1{
                         @include position(50%, vh(360));
@@ -153,10 +192,10 @@ body{
                     }
                     .address{
                         display: flex;
-                        @include font(rem(10),bold,#707070);
+                        @include font(rem(8),normal,#EDEDED);
                         margin: vh(14) auto;
                         @include size(80%, vh(14));
-                        background: #eee;
+                        background: #000033;
                         border-radius: 10px;
                         line-height: vh(14);
                         text-indent: em(10,10);
@@ -181,8 +220,13 @@ body{
                         transform: translateY(-50%);
                         span{
                             display: block;
+                            opacity: 0;
                             @include size(vh(40), vh(40));
                             background: rebeccapurple;
+                            transition: 0.2s ease-in;
+                            &:hover{
+                                opacity: 1;
+                            }
                         }
                     }
                 }
@@ -191,26 +235,26 @@ body{
                 @include position(50%, vw(1180));
                 transform: translateY(-50%);
                 h4{
-                    @include font(rem(40), bolder, #eee);
+                    @include font(rem(40), bolder, #EDEDED);
                 }
                 h6{
-                    @include font(rem(18), regular, #476072);
+                    @include font(rem(18), normal, #0099FF);
                     margin-bottom: em(20,18);
                     margin-top: em(20,18);
                 }
                 h5{
-                    @include font(rem(30), regular, #eee);
+                    @include font(rem(30), normal, #EDEDED);
                 }
                 p{
-                    @include font(rem(20), regular, #eee);
+                    @include font(rem(20), normal, #EDEDED);
                     width: vw(300);
                     margin-bottom: em(20,20);
                     margin-top: em(20,20);
                 }
                 .launch_btn{
                     display: inline-block;
-                    @include font(rem(18), bold, #548CA8);
-                    background: #476072;
+                    @include font(rem(18), bold, #EDEDED);
+                    background: #0066CC;
                     padding: em(8,18) em(20, 18);
                     border-radius: 30px;
                     margin-top: vh(60);
@@ -233,14 +277,13 @@ body{
         }
         #contact{
             @include position(vh(60),vw(320));
-            display: none;
-            // display: flex;
+            display: flex;
             align-items: center;
             height: vh(760);     
             .profile{
                 @include size(50%, 80%);
                 h2{
-                    @include font(rem(80), 900, #FFF5DE);
+                    @include font(rem(80), 900, #EFEFEF);
                 }
                 .profile_index{
                     width: 80%;
@@ -249,11 +292,11 @@ body{
                     grid-template-rows: repeat(4,1fr);
                     li{
                         position: relative;
-                        @include font(rem(30), bold, #C6B4CE);
+                        @include font(rem(30), bold, #FFC947);
                         padding: em(20,30) 0;
-                        border-bottom: 1px solid #9B72AA;
+                        border-bottom: 1px solid #185ADB;
                         span{
-                            font-size: rem(18);
+                            @include font(rem(18), normal);
                             @include position(50%, em(240,18));
                             transform: translateY(-50%)
                         }
@@ -262,7 +305,7 @@ body{
             }
             .profile_img{
                 @include size(50%, 100%);
-                background: #C6B4CE;
+                background: #185ADB;
             }       
         }
     }
@@ -283,7 +326,7 @@ body{
     }
     footer{
         padding-top: em(20,14);
-        @include font(rem(14),regular,#476072);
+        @include font(rem(14),normal,#476072);
         @include flex(center);
 
     }

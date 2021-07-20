@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="scss/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
     <title>Document</title>
@@ -14,21 +14,21 @@
     <div id="wrap">
         <header>
             <ul id="nav">
-                <li><a href="#">ABOUT ME</a>
+                <li class="on" data-section="0"><a href="\">ABOUT ME</a>
                     <span class="under_bar"></span>
                 </li>
-                <li><a href="#">PROJECT</a>
+                <li data-section="1"><a href="\">PROJECT</a>
                     <span class="under_bar"></span>
                 </li>
-                <li><a href="#">CONTACT</a>
+                <li data-section="2"><a href="\">CONTACT</a>
                     <span class="under_bar"></span>
                 </li>
             </ul>
         </header>
         <main>
-            <section id="about">
+            <section id="about" class="on" data-section="0">
                 <ul id="pages">
-                    <li class="page1 inner">
+                    <li class="page inner">
                         <div class="img">
                             <div class="text_box">
                                 <h2>FAITHFUL</h2>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="page2 inner">
+                    <li class="page inner">
                         <div class="img">
                             <div class="text_box">
                                 <h2>ENEGENIC</h2>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="page3 inner">
+                    <li class="page inner">
                         <div class="img">
                             <div class="text_box">
                                 <h2>CHALLENGE</h2>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="page4 inner">
+                    <li class="page inner">
                         <div class="img">
                             <div class="text_box">
                                 <h2>SKILLS</h2>
@@ -63,7 +63,7 @@
                     </li>
                 </ul>
             </section>
-            <section id="project">
+            <section id="project" data-section="1">
                 <ul class="slider">
                     <li class="window page1">
                         <div class="address">
@@ -165,20 +165,20 @@
                 <ul class ="texts">
                     <li>
                         <h4>멜론 홈페이지 리뉴얼</h4>
-                        <h6 class="homepage"><a href="http://mypom11.github.io/melon">mypom11.github.io/melon</a></h6>
+                        <h6 class="homepage"><a href="http://mypom11.github.io/melon" target='_blank' >mypom11.github.io/melon</a></h6>
                         <h5>HTML5, CSS3, JavaScript</h5>
                         <p>LoremasfdLoremasfdLoremasfd
                             LoremasfdLoremasfdLoremasfd
                             LoremasfdLoremasfdLoremasfd
                             LoremasfdLoremasfdLoremasfd</p>
-                        <span class="launch_btn"><a href="http://mypom11.github.io/melon">Lanch Project</a></span>
+                        <span class="launch_btn"><a href="http://mypom11.github.io/melon" target='_blank'>Lanch Project</a></span>
                     </li>
                 </ul>
                 <div class="scrollbar">
                     <span></span>
                 </div>
             </section>
-            <section id="contact" class="inner">
+            <section id="contact" class="inner" data-section="2">
                 <div class="profile">
                     <h2>MIN<br>JEONGKI</h2>
                     <ul class="profile_index">
