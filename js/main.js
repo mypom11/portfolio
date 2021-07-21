@@ -14,12 +14,12 @@ const scrollBar = wrap.querySelector('.scrollbar');
 const scrollBtn = wrap.querySelector('.scrollbar span');
 const texts = wrap.querySelectorAll('.texts li');
 const contentSlider = document.querySelectorAll('.content_list');
-const contents = document.querySelectorAll('.content_list li');
 let mainColor;
 let subColor;
 let currentSection = 0;
 let current = 0;
 let aboutColor;
+
 class Color{
     constructor(bg, main, sub, font){
         this.bg = bg;
@@ -148,14 +148,14 @@ slider.addEventListener('click',function(e){
 
     }else if(e.target.classList == 'left'){
         contentsCurrent++
-        contentSlide(contentsCurrent, textNum)
+        contentSlide(textNum, contentsCurrent)
     }else if(e.target.classList == 'right'){
         contentsCurrent--
-        contentSlide(contentsCurrent, textNum)
+        contentSlide(textNum, contentsCurrent)
     }else if(e.target.classList != 'window page0' && e.target.classList != 'window page0 on'){
         currentSlide++
         currentNum()
-        mover(currentSlide)
+        mover(currentSlide)        
     }
     
 })
@@ -176,6 +176,9 @@ function mover(current) {
         num += 1;
     });
     scrollBtn.style.left = `${current*25}%`;
+    texts.forEach(function(item){
+        item.classList.remove('on')
+    })
 }
 
 
@@ -200,13 +203,16 @@ scrollBar.addEventListener('mousedown', function(e){
 })
 
 //contents slider
-
 function contentSlide(num ,index){
-    contentSlider[num].style.left = `${index*-100}%`
+    if(index < 0){
+        contentsCurrent = 0;
+    }else if(index > contentSlider[num].children.length-1){
+        contentsCurrent = contentSlider[num].children.length-1;
+    }else{
+        contentSlider[num].style.left = `${index*-100}%`;
+    }
 }
-
-contentSlider.style.width = `${contents.length * 100}%`;
-contents.forEach(function(item){
-    item.style.width = `${100/contents.length}%`;
+contentSlider.forEach(function(item){
+    item.style.width = `${item.children.length*100}%`;
 })
 //contact section

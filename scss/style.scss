@@ -54,7 +54,16 @@
         z-index: 0;
     }
 }
-
+@keyframes textAni{
+    from{
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
 body{
     overflow: hidden;
     font-size: rem(20);
@@ -170,7 +179,7 @@ body{
                 .window{
                     display: none;
                     pointer-events:none;
-                    &.page-1{
+                    &.page-1, &.page-2, &.page-3{
                         @include size(vw(600), vh(400));
                         background: rgba(71, 96, 114, 0.4);
                         border-radius: 10px;
@@ -245,7 +254,6 @@ body{
                     .content{
                         position: relative;
                         @include size(98%, 86%);
-                        background: #ccc;
                         margin: 0 auto;
                         border-radius: 4px;
                         overflow: hidden;
@@ -254,8 +262,9 @@ body{
                             @include position(0, 0);
                             @include flex;
                             @include size;
+                            transition: 0.5s ease-in;
                             li{
-                                @include size(100%)
+                                @include size(100%);
                                 &:nth-child(1){
                                     background: red;
                                 }
@@ -336,29 +345,55 @@ body{
                 li{
                     @include position(0, 0);
                     transform: translateY(-50%);
+                    visibility: hidden;
                     opacity: 0;
-                    transition: 1s ease-in;
+                    transition: 0.5s ease-in;
                     &.on{
+                        visibility: visible;
                         opacity: 1;
                         z-index: 5;
+                        h4{
+                            animation: textAni 0.5s 0.5s ease-in forwards;
+                        }
+                        h6{
+                            animation: textAni 0.5s 1s ease-in forwards;
+                        }
+                        h5{
+                            animation: textAni 0.5s 1.5s ease-in forwards;
+                        }
+                        p{
+                            animation: textAni 0.5s 2s ease-in forwards;
+                        }
+                        .launch_btn{
+                            animation: textAni 0.5s 2.5s ease-in forwards;
+                        }
                     }
                 }
                 h4{
                     @include font(rem(40), bolder, #EDEDED);
+                    opacity: 0;
+                    transform: translateY(20%);
+                    
                 }
                 h6{
                     @include font(rem(18), normal, #0099FF);
                     margin-bottom: em(20,18);
                     margin-top: em(20,18);
+                    opacity: 0;
+                    transform: translateY(20%);
                 }
                 h5{
                     @include font(rem(20), bold, #EDEDED);
+                    opacity: 0;
+                    transform: translateY(20%);
                 }
                 p{
                     @include font(rem(20), normal, #EDEDED);
                     width: vw(300);
                     margin-bottom: em(20,20);
                     margin-top: em(20,20);
+                    opacity: 0;
+                    transform: translateY(20%);
                 }
                 .launch_btn{
                     display: inline-block;
@@ -367,6 +402,8 @@ body{
                     padding: em(8,18) em(20, 18);
                     border-radius: 30px;
                     margin-top: vh(60);
+                    opacity: 0;
+                    transform: translateY(20%);
                 }
             }
             .scrollbar{
@@ -400,7 +437,7 @@ body{
                     width: 80%;
                     margin-top: vh(50);
                     display: grid;
-                    grid-template-rows: repeat(4,1fr);
+                    grid-template-rows: repeat(4,vh(80));
                     li{
                         position: relative;
                         @include font(rem(30), bold, #FFC947);
