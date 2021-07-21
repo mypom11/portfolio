@@ -6,7 +6,15 @@ const main = wrap.querySelector('main');
 const aside = wrap.querySelector('aside');
 const footer = wrap.querySelector('footer');
 const text_box = wrap.querySelectorAll('.text_box');
-const page = document.querySelectorAll('.page')
+const page = document.querySelectorAll('.page');
+const slider = wrap.querySelector('.slider');
+const btn = slider.querySelector('.btn');
+const windows = slider.querySelectorAll('.window');
+const scrollBar = wrap.querySelector('.scrollbar');
+const scrollBtn = wrap.querySelector('.scrollbar span');
+const texts = wrap.querySelectorAll('.texts li');
+const contentSlider = document.querySelectorAll('.content_list');
+const contents = document.querySelectorAll('.content_list li');
 let mainColor;
 let subColor;
 let currentSection = 0;
@@ -74,7 +82,7 @@ nav.addEventListener('click',function(e){
 })
 //about section
 //마우스 휠 이벤트
-$('html, body').on('wheel', function(e){
+$('html').on('wheel', function(e){
     if(currentSection == 0){
         if(e.originalEvent.deltaY > 0){
             current++;
@@ -83,8 +91,18 @@ $('html, body').on('wheel', function(e){
             current--;
             pageAnimaiton()
         }
+    }else if(currentSection == 1){
+        if(e.originalEvent.deltaY > 0){
+            currentSlide++
+            currentNum()
+            mover(currentSlide)
+        }else{
+            currentSlide--
+            currentNum()
+            mover(currentSlide)
+        }
     }else{
-        return;
+        return
     }
 })
 
@@ -92,14 +110,14 @@ function pageAnimaiton(){
     //current 범위 정하기
     if(current < 0){
         current = 0;
-    }else if(current > 6){
-        current = 6;
+    }else if(current > page.length-1){
+        current = page.length-1;
     }
     //current에 따라 움직이는 #pages
-    $('#pages').css('left',`${current * -50}vw`)
+    $('#pages').css('left',`${current * -100}vw`)
     //page 이벤트
     for(let i= 0; i < 5; i++){
-        if(current == i*2){
+        if(current == i){
             setTimeout(function(){
                 colors[i+2].aboutChange();
                 aboutColor = i+2;
@@ -115,10 +133,80 @@ function pageAnimaiton(){
 
 //project section
 
-//
+
 
 //slide 이벤트
+let currentSlide = 0
+let contentsCurrent = 0;
+
+slider.addEventListener('click',function(e){
+    textNum = e.target.parentNode.parentNode.dataset.class
+    //중앙버튼 클릭시 rotateY 0
+    if(e.target.classList == 'center'){
+        e.target.parentNode.parentNode.classList.toggle('on'); 
+        texts[textNum].classList.toggle('on');
+
+    }else if(e.target.classList == 'left'){
+        contentsCurrent++
+        contentSlide(contentsCurrent, textNum)
+    }else if(e.target.classList == 'right'){
+        contentsCurrent--
+        contentSlide(contentsCurrent, textNum)
+    }else if(e.target.classList != 'window page0' && e.target.classList != 'window page0 on'){
+        currentSlide++
+        currentNum()
+        mover(currentSlide)
+    }
+    
+})
+
+function currentNum(){
+    if(currentSlide < 0){
+        currentSlide = 0
+    }else if(currentSlide > 3){
+        currentSlide = 3;
+    }
+}
+
+function mover(current) {
+    let num;
+    num = -current;
+    windows.forEach(function(item){
+        item.className = `window page${num}`;
+        num += 1;
+    });
+    scrollBtn.style.left = `${current*25}%`;
+}
 
 
+scrollBar.addEventListener('mousedown', function(e){
+     if(e.offsetX/scrollBar.clientWidth < 0.25){
+        currentSlide = 0;
+        currentNum()
+        mover(currentSlide)
+    }else if(e.offsetX/scrollBar.clientWidth < 0.5){
+        currentSlide = 1;
+        currentNum()
+        mover(currentSlide)
+    }else if(e.offsetX/scrollBar.clientWidth < 0.75){
+        currentSlide = 2;
+        currentNum()
+        mover(currentSlide)
+    }else if(e.offsetX/scrollBar.clientWidth > 0.75){
+        currentSlide = 3;
+        currentNum()
+        mover(currentSlide)
+    }  
+})
 
+//contents slider
+
+function contentSlide(num ,index){
+    contentSlider[num].style.left = `${index*-100}%`
+}
+
+contentSlider.style.width = `${contents.length * 100}%`;
+contents.forEach(function(item){
+    item.style.width = `${100/contents.length}%`;
+})
 //contact section

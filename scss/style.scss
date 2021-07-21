@@ -53,8 +53,6 @@
         transform: scale(1);
         z-index: 0;
     }
-
-
 }
 
 body{
@@ -72,6 +70,7 @@ body{
     @include size;
     background: #334257;
     padding: vh(80) 0;
+    transition: 0.5s;
     header{
         @include position(vh(90), vw(320), $p:fixed);
         z-index: 30;
@@ -166,27 +165,63 @@ body{
                 @include size(50%, vh(500));
                 transform: translateY(-50%);
                 perspective: 2000px;
+                pointer-events: none;
+                overflow: hidden;
                 .window{
-                    @include size(vw(600), vh(400));
-                    background: rgba(71, 96, 114, 0.4);
-                    border-radius: 10px;
-                    &.page1{
-                        @include position(50%, vh(360));
+                    display: none;
+                    pointer-events:none;
+                    &.page-1{
+                        @include size(vw(600), vh(400));
+                        background: rgba(71, 96, 114, 0.4);
+                        border-radius: 10px;
+                        transition: 0.5s;
+                        pointer-events: auto;
+                        display: block;
+                        @include position(50%, vw(900));
                         transform: translateY(-50%) rotateY(40deg) scale(1);
-                        z-index: 10;
+                        z-index: 10;  
                     }
-                    &.page2{
-                        @include position(50%, vh(260));
+                    &.page0{
+                        @include size(vw(600), vh(400));
+                        background: rgba(71, 96, 114, 0.4);
+                        border-radius: 10px;
+                        transition: 0.5s;
+                        pointer-events: auto;
+                        display: block;
+                        @include position(50%, vh(300));
+                        transform: translateY(-50%) rotateY(40deg) scale(1);
+                        z-index: 10;  
+                    }
+                    &.page1{
+                        @include size(vw(600), vh(400));
+                        background: rgba(71, 96, 114, 0.4);
+                        border-radius: 10px;
+                        transition: 0.5s;
+                        pointer-events: auto;
+                        display: block;
+                        @include position(50%, vh(200));
                         transform: translateY(-50%) rotateY(30deg) scale(0.8);
                         z-index: 8;
                     }
-                    &.page3{
-                        @include position(50%, vh(180));
+                    &.page2{
+                        @include size(vw(600), vh(400));
+                        background: rgba(71, 96, 114, 0.4);
+                        border-radius: 10px;
+                        transition: 0.5s;
+                        pointer-events: auto;
+                        display: block;
+                        @include position(50%, vh(100));
                         transform: translateY(-50%) rotateY(20deg) scale(0.6);
                         z-index: 6;
                     }
-                    &.page4{
-                        @include position(50%, vh(100));
+                    &.page3{
+                        @include size(vw(600), vh(400));
+                        background: rgba(71, 96, 114, 0.4);
+                        border-radius: 10px;
+                        transition: 0.5s;
+                        pointer-events: auto;
+                        display: block; 
+                        @include position(50%, vh(0));
                         transform: translateY(-50%) rotateY(10deg) scale(0.4);
                         z-index: 4;
                     }
@@ -199,6 +234,7 @@ body{
                         border-radius: 10px;
                         line-height: vh(14);
                         text-indent: em(10,10);
+                        pointer-events: none;
                         span{
                             margin-left: vw(20);
                             @include size(vh(14), vh(14));
@@ -207,33 +243,106 @@ body{
                         }
                     }
                     .content{
+                        position: relative;
                         @include size(98%, 86%);
                         background: #ccc;
                         margin: 0 auto;
                         border-radius: 4px;
                         overflow: hidden;
+                        pointer-events: none;
+                        .content_list{
+                            @include position(0, 0);
+                            @include flex;
+                            @include size;
+                            li{
+                                @include size(100%)
+                                &:nth-child(1){
+                                    background: red;
+                                }
+                                &:nth-child(2){
+                                    background: blue;
+                                }
+                                &:nth-child(3){
+                                    background: green;
+                                }
+                                &:nth-child(4){
+                                    background: violet;
+                                }
+                            } 
+                        }
+                    }
+                    &.on {
+                        transform: translateY(-50%) rotateY(0deg) scale(1);
+                        animation: paused;
+                        .btn{
+                            justify-content: space-between;
+                            span{
+                                display: block;
+                                opacity: 0.3;
+                                &:hover{
+                                    opacity: 1;
+                                    &:nth-child(1){
+                                        @include background('icons/btn_left_hover.png');
+                                    }
+                                    &:nth-child(3){
+                                        @include background('icons/btn_right_hover.png');
+                                    }
+                                }
+                                &:nth-child(2){
+                                    @include background('icons/btn_down.png');
+                                    &:hover{
+                                      @include background('icons/btn_down_hover.png');
+                                    }
+                                }  
+                            }
+                        }
                     }
                     .btn{
-                        @include position(50%, 0);
-                        @include size(100%, vh(40));
-                        @include flex(space-between);
+                        @include position(50%, 10%);
+                        @include size(80%, vh(40));
+                        @include flex(center);
                         transform: translateY(-50%);
+                        pointer-events: none;
                         span{
-                            display: block;
+                            pointer-events: auto;
+                            display: none;
                             opacity: 0;
+                            cursor: pointer;
                             @include size(vh(40), vh(40));
-                            background: rebeccapurple;
                             transition: 0.2s ease-in;
-                            &:hover{
-                                opacity: 1;
+                            &:nth-child(1){
+                                @include background('icons/btn_left.png');
+                            }
+                            &:nth-child(2){
+                                @include background('icons/btn_up.png');
+                                opacity: 0.3;
+                                display: block;
+                                &:hover{
+                                  @include background('icons/btn_up_hover.png');
+                                  opacity: 1;
+                                }
+                            }  
+                            &:nth-child(3){
+                                @include background('icons/btn_right.png');
                             }
                         }
                     }
                 }
             }
             .texts{
+                position: relative;
                 @include position(50%, vw(1180));
-                transform: translateY(-50%);
+                width: 50%;
+                li{
+                    @include position(0, 0);
+                    transform: translateY(-50%);
+                    opacity: 0;
+                    transition: 1s ease-in;
+                    &.on{
+                        opacity: 1;
+                        z-index: 5;
+                    }
+                }
                 h4{
                     @include font(rem(40), bolder, #EDEDED);
                 }
@@ -243,7 +352,7 @@ body{
                     margin-top: em(20,18);
                 }
                 h5{
-                    @include font(rem(30), normal, #EDEDED);
+                    @include font(rem(20), bold, #EDEDED);
                 }
                 p{
                     @include font(rem(20), normal, #EDEDED);
@@ -269,9 +378,11 @@ body{
                 span{
                     @include position(1px, 0);
                     display: block;
-                    @include size(20%, 80%);
-                    background: #334257;
+                    @include size(25%, 80%);
+                    background: #A2DBFA;
                     border-radius: 20px;
+                    transition: 0.5s;
+                    pointer-events: none;
                 }
             }
         }
@@ -328,6 +439,5 @@ body{
         padding-top: em(20,14);
         @include font(rem(14),normal,#476072);
         @include flex(center);
-
     }
 }
