@@ -145,11 +145,22 @@ body{
                     &.on{
                         animation: aboutScale 0.8s ease-in forwards;
                     }
-                    .img{
+                    .video{
                         position: relative;
                         @include size(vw(1280),vh(700));
-                        background: #E8F0F2;
                         margin: 0 auto;
+                        .black_bg{
+                            @include size;
+                            @include position(0, 0);
+                            background: rgba(0,0,0,0.5);
+                        }
+                        &:nth-child(4){
+                            background: #ccc;
+                        }
+                        video{
+                            @include size;
+                            object-fit: cover;
+                        }
                         .text_box{
                             h2{
                                 @include font(rem(150), 900, #A2DBFA);
@@ -158,6 +169,7 @@ body{
                                 @include font(rem(30), bold, #39A2DB);
                                 width: em(700,30);
                                 line-height: em(40,30);
+                                margin-left: em(10,30);
                             }
                             @include position($r:-20%, $b:10%);
                         }
@@ -179,6 +191,19 @@ body{
                 .window{
                     display: none;
                     pointer-events:none;
+                    &:nth-child(2){
+                        .content{
+                            .content_list{
+                                li:nth-child(3){
+                                    background: #000033;
+                                    @include flex(center);                                  
+                                    video{
+                                        @include size(50%, 100%);
+                                    }
+                                }
+                            }
+                        }
+                    }
                     &.page-1, &.page-2, &.page-3{
                         @include size(vw(600), vh(400));
                         background: rgba(71, 96, 114, 0.4);
@@ -244,7 +269,7 @@ body{
                         line-height: vh(14);
                         text-indent: em(10,10);
                         pointer-events: none;
-                        span{
+                        img{
                             margin-left: vw(20);
                             @include size(vh(14), vh(14));
                             background: #A2DBFA;
@@ -265,17 +290,9 @@ body{
                             transition: 0.5s ease-in;
                             li{
                                 @include size(100%);
-                                &:nth-child(1){
-                                    background: red;
-                                }
-                                &:nth-child(2){
-                                    background: blue;
-                                }
-                                &:nth-child(3){
-                                    background: green;
-                                }
-                                &:nth-child(4){
-                                    background: violet;
+                                video{
+                                    @include size;
+                                    object-fit: fill;
                                 }
                             } 
                         }

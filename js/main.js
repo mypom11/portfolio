@@ -14,6 +14,7 @@ const scrollBar = wrap.querySelector('.scrollbar');
 const scrollBtn = wrap.querySelector('.scrollbar span');
 const texts = wrap.querySelectorAll('.texts li');
 const contentSlider = document.querySelectorAll('.content_list');
+const videos = document.querySelectorAll('.video video');
 let mainColor;
 let subColor;
 let currentSection = 0;
@@ -76,8 +77,12 @@ nav.addEventListener('click',function(e){
     //section 배경 가져오기
     if(currentSection != 0){
         colors[currentSection-1].bgChange();
+        videos.forEach(function(item){
+            item.pause()
+        })
     }else{
         colors[aboutColor].bgChange()
+        page[aboutColor-2].querySelector('video').play()
     }
 })
 //about section
@@ -116,11 +121,13 @@ function pageAnimaiton(){
     //current에 따라 움직이는 #pages
     $('#pages').css('left',`${current * -100}vw`)
     //page 이벤트
-    for(let i= 0; i < 5; i++){
+    for(let i= 0; i < page.length; i++){
         if(current == i){
             setTimeout(function(){
                 colors[i+2].aboutChange();
                 aboutColor = i+2;
+                videoStop()
+                page[i].querySelector('video').play()
             },800)
             page.forEach(function(item){
                 item.classList.remove('on');
@@ -130,7 +137,11 @@ function pageAnimaiton(){
     }
 }
 
-
+function videoStop(){
+    videos.forEach(function(item){
+        item.pause()
+    })
+}
 //project section
 
 
