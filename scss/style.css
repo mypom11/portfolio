@@ -112,11 +112,13 @@ body .inner {
   height: 100%;
 }
 #wrap main section {
+  visibility: hidden;
   opacity: 0;
   z-index: 0;
   transition: 0.5s ease-in;
 }
 #wrap main section.on {
+  visibility: visible;
   opacity: 1;
   z-index: 10;
 }
@@ -142,11 +144,47 @@ body .inner {
   transition: 0.5s;
   transform: scale(1);
 }
+#wrap main #about #pages li:nth-child(4) .video {
+  background: #fff;
+  padding: 2.0833333333vw 2.0833333333vw;
+}
+#wrap main #about #pages li:nth-child(4) h3 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #F7BE16;
+  margin-bottom: 2.0833333333vw;
+}
+#wrap main #about #pages li:nth-child(4) ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5.2083333333vw;
+}
+#wrap main #about #pages li:nth-child(4) ul img {
+  width: 100%;
+  height: 100%;
+}
+#wrap main #about #pages li:nth-child(4) ul:nth-of-type(1) {
+  width: 52.0833333333vw;
+}
+#wrap main #about #pages li:nth-child(4) ul:nth-of-type(1) li {
+  width: 5.2083333333vw;
+  height: auto;
+}
+#wrap main #about #pages li:nth-child(4) ul:nth-of-type(2) {
+  width: 20.8333333333vw;
+}
+#wrap main #about #pages li:nth-child(4) ul:nth-of-type(2) li {
+  opacity: 0.5;
+  width: 3.125vw;
+  height: auto;
+}
 #wrap main #about #pages li.on {
   -webkit-animation: aboutScale 0.8s ease-in forwards;
           animation: aboutScale 0.8s ease-in forwards;
 }
 #wrap main #about #pages li .video {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
   position: relative;
   width: 66.6666666667vw;
   height: 68.359375vh;
@@ -159,9 +197,6 @@ body .inner {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
-}
-#wrap main #about #pages li .video:nth-child(4) {
-  background: #ccc;
 }
 #wrap main #about #pages li .video video {
   width: 100%;
@@ -178,11 +213,13 @@ body .inner {
   font-size: 9.375rem;
   font-weight: 900;
   color: #A2DBFA;
+  text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.5);
 }
 #wrap main #about #pages li .video .text_box h3 {
   font-size: 1.875rem;
   font-weight: bold;
   color: #39A2DB;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
   width: 23.3333333333em;
   line-height: 1.3333333333em;
   margin-left: 0.3333333333em;
