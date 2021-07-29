@@ -88,24 +88,41 @@ nav.addEventListener('click',function(e){
 })
 //about section
 //마우스 휠 이벤트
+let speedhandler = 0;
 $('html').on('wheel', function(e){
     if(currentSection == 0){
         if(e.originalEvent.deltaY > 0){
-            current++;
-            pageAnimaiton()
+            speedhandler++
+            if(speedhandler > 50){
+                speedhandler = 0
+                current++;
+                pageAnimaiton()
+            }
         }else{
-            current--;
-            pageAnimaiton()
+            speedhandler--;
+            if(speedhandler < -50){
+                speedhandler = 0;
+                current--;
+                pageAnimaiton()
+            }
         }
     }else if(currentSection == 1){
         if(e.originalEvent.deltaY > 0){
-            currentSlide++
-            currentNum()
-            mover(currentSlide)
+            speedhandler++
+            if(speedhandler > 50){
+                currentSlide++
+                currentNum()
+                mover(currentSlide)
+                speedhandler = 0
+            }
         }else{
-            currentSlide--
-            currentNum()
-            mover(currentSlide)
+            speedhandler--
+            if(speedhandler <-35){
+                currentSlide--
+                currentNum()
+                mover(currentSlide)
+                speedhandler=0
+            }
         }
     }else{
         return
@@ -156,7 +173,6 @@ slider.addEventListener('click',function(e){
     //중앙버튼 클릭시 rotateY 0
     if(e.target.classList == 'center'){
         e.target.parentNode.parentNode.classList.toggle('on'); 
-        texts[textNum].classList.toggle('on');
     }else if(e.target.classList != 'window page0' && e.target.classList != 'window page0 on'){
         currentSlide++
         currentNum()
@@ -184,6 +200,7 @@ function mover(current) {
     texts.forEach(function(item){
         item.classList.remove('on')
     })
+    texts[current].classList.toggle('on');
 }
 
 
