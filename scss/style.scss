@@ -152,7 +152,7 @@ body{
                         .black_bg{
                             @include size;
                             @include position(0, 0);
-                            background: rgba(0,0,0,0.5);
+                            background: rgba(0,0,0,0.3);
                         }
                         &:nth-child(4){
                             background: #ccc;
@@ -301,25 +301,12 @@ body{
                         transform: translateY(-50%) rotateY(0deg) scale(1);
                         animation: paused;
                         .btn{
-                            justify-content: space-between;
                             span{
-                                display: block;
                                 opacity: 0.3;
+                                @include background('icons/btn_down.png');
                                 &:hover{
-                                    opacity: 1;
-                                    &:nth-child(1){
-                                        @include background('icons/btn_left_hover.png');
-                                    }
-                                    &:nth-child(3){
-                                        @include background('icons/btn_right_hover.png');
-                                    }
+                                  @include background('icons/btn_down_hover.png');
                                 }
-                                &:nth-child(2){
-                                    @include background('icons/btn_down.png');
-                                    &:hover{
-                                      @include background('icons/btn_down_hover.png');
-                                    }
-                                }  
                             }
                         }
                     }
@@ -331,25 +318,14 @@ body{
                         pointer-events: none;
                         span{
                             pointer-events: auto;
-                            display: none;
-                            opacity: 0;
                             cursor: pointer;
-                            @include size(vh(40), vh(40));
                             transition: 0.2s ease-in;
-                            &:nth-child(1){
-                                @include background('icons/btn_left.png');
-                            }
-                            &:nth-child(2){
-                                @include background('icons/btn_up.png');
-                                opacity: 0.3;
-                                display: block;
-                                &:hover{
-                                  @include background('icons/btn_up_hover.png');
-                                  opacity: 1;
-                                }
-                            }  
-                            &:nth-child(3){
-                                @include background('icons/btn_right.png');
+                            @include size(vh(40), vh(40));
+                            @include background('icons/btn_up.png');
+                            opacity: 0.3;
+                            &:hover{
+                              @include background('icons/btn_up_hover.png');
+                              opacity: 1;
                             }
                         }
                     }
@@ -387,6 +363,7 @@ body{
                     }
                 }
                 h4{
+                    width: vw(460);
                     @include font(rem(40), bolder, #EDEDED);
                     opacity: 0;
                     transform: translateY(20%);
@@ -406,7 +383,7 @@ body{
                 }
                 p{
                     @include font(rem(20), normal, #EDEDED);
-                    width: vw(300);
+                    width: vw(500);
                     margin-bottom: em(20,20);
                     margin-top: em(20,20);
                     opacity: 0;
@@ -418,7 +395,7 @@ body{
                     background: #0066CC;
                     padding: em(8,18) em(20, 18);
                     border-radius: 30px;
-                    margin-top: vh(60);
+                    margin-top: vh(30);
                     opacity: 0;
                     transform: translateY(20%);
                 }

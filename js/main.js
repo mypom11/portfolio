@@ -53,7 +53,7 @@ class Color{
 colors = [
     new Color('#000033', '#0066CC', '#0099FF', '#EDEDED'),
     new Color('#0A1931', '#185ADB', '#EFEFEF', '#FFC947'),
-    new Color('#52006A', '#CD113B', '#FF7600', '#FFA900'),
+    new Color('#000000', '#BD4B4B', '#EFB7B7', '#EEEEEE'),
     new Color('#211572', '#24BDDF', '#F4F4F4', '#FFFDBB'),
     new Color('#3A3A62', '#604FDD', '#26C6D0', '#E6E993'),
     new Color('#293462', '#F7BE16', '#216583', '#00818A'),   
@@ -64,6 +64,7 @@ colors[2].aboutChange()
 nav.addEventListener('click',function(e){
     //nav에 클래스 달기
     nav.querySelectorAll('li').forEach(function(item){
+        event.preventDefault()
         item.classList.remove('on');
     })
     e.target.classList.add('on');
@@ -156,13 +157,6 @@ slider.addEventListener('click',function(e){
     if(e.target.classList == 'center'){
         e.target.parentNode.parentNode.classList.toggle('on'); 
         texts[textNum].classList.toggle('on');
-
-    }else if(e.target.classList == 'left'){
-        contentsCurrent++
-        contentSlide(textNum, contentsCurrent)
-    }else if(e.target.classList == 'right'){
-        contentsCurrent--
-        contentSlide(textNum, contentsCurrent)
     }else if(e.target.classList != 'window page0' && e.target.classList != 'window page0 on'){
         currentSlide++
         currentNum()

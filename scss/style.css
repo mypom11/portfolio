@@ -158,7 +158,7 @@ body .inner {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
 }
 #wrap main #about #pages li .video:nth-child(4) {
   background: #ccc;
@@ -346,35 +346,14 @@ body .inner {
   -webkit-animation: paused;
           animation: paused;
 }
-#wrap main #project .slider .window.on .btn {
-  justify-content: space-between;
-}
 #wrap main #project .slider .window.on .btn span {
-  display: block;
   opacity: 0.3;
-}
-#wrap main #project .slider .window.on .btn span:hover {
-  opacity: 1;
-}
-#wrap main #project .slider .window.on .btn span:hover:nth-child(1) {
-  background-image: url("../images/icons/btn_left_hover.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-#wrap main #project .slider .window.on .btn span:hover:nth-child(3) {
-  background-image: url("../images/icons/btn_right_hover.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-#wrap main #project .slider .window.on .btn span:nth-child(2) {
   background-image: url("../images/icons/btn_down.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
-#wrap main #project .slider .window.on .btn span:nth-child(2):hover {
+#wrap main #project .slider .window.on .btn span:hover {
   background-image: url("../images/icons/btn_down_hover.png");
   background-position: center center;
   background-size: cover;
@@ -394,39 +373,22 @@ body .inner {
 }
 #wrap main #project .slider .window .btn span {
   pointer-events: auto;
-  display: none;
-  opacity: 0;
   cursor: pointer;
+  transition: 0.2s ease-in;
   width: 3.90625vh;
   height: 3.90625vh;
-  transition: 0.2s ease-in;
-}
-#wrap main #project .slider .window .btn span:nth-child(1) {
-  background-image: url("../images/icons/btn_left.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-#wrap main #project .slider .window .btn span:nth-child(2) {
   background-image: url("../images/icons/btn_up.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.3;
-  display: block;
 }
-#wrap main #project .slider .window .btn span:nth-child(2):hover {
+#wrap main #project .slider .window .btn span:hover {
   background-image: url("../images/icons/btn_up_hover.png");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 1;
-}
-#wrap main #project .slider .window .btn span:nth-child(3) {
-  background-image: url("../images/icons/btn_right.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 #wrap main #project .texts {
   position: relative;
@@ -470,6 +432,7 @@ body .inner {
           animation: textAni 0.5s 2.5s ease-in forwards;
 }
 #wrap main #project .texts h4 {
+  width: 23.9583333333vw;
   font-size: 2.5rem;
   font-weight: bolder;
   color: #EDEDED;
@@ -496,7 +459,7 @@ body .inner {
   font-size: 1.25rem;
   font-weight: normal;
   color: #EDEDED;
-  width: 15.625vw;
+  width: 26.0416666667vw;
   margin-bottom: 1em;
   margin-top: 1em;
   opacity: 0;
@@ -510,7 +473,7 @@ body .inner {
   background: #0066CC;
   padding: 0.4444444444em 1.1111111111em;
   border-radius: 30px;
-  margin-top: 5.859375vh;
+  margin-top: 2.9296875vh;
   opacity: 0;
   transform: translateY(20%);
 }
