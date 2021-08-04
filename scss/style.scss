@@ -208,6 +208,20 @@ body{
                     }
                 }
             }
+            .scroll_btn{
+                @include position($l:50%, $b:4%);
+                transform: translateX(-50%);
+                @include size(vw(150), vw(20));
+                @include flex;
+                pointer-events:none;
+                span{
+                    @include size(vw(20), vw(20));
+                    background: #fff;
+                    border-radius: 50%;
+                    box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+                    pointer-events:auto;
+                }
+            }
         }
         #project{
             display: block;

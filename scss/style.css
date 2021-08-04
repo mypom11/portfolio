@@ -224,6 +224,26 @@ body .inner {
   line-height: 1.3333333333em;
   margin-left: 0.3333333333em;
 }
+#wrap main #about .scroll_btn {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  width: 7.8125vw;
+  height: 1.0416666667vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+#wrap main #about .scroll_btn span {
+  width: 1.0416666667vw;
+  height: 1.0416666667vw;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
 #wrap main #project {
   display: block;
   position: absolute;

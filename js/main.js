@@ -15,6 +15,8 @@ const scrollBtn = wrap.querySelector('.scrollbar span');
 const texts = wrap.querySelectorAll('.texts li');
 const contentSlider = document.querySelectorAll('.content_list');
 const videos = document.querySelectorAll('.video video');
+const pageBtn = wrap.querySelector('.scroll_btn');
+const pageBtns = pageBtn.querySelectorAll('span');
 let mainColor;
 let subColor;
 let currentSection = 0;
@@ -44,6 +46,12 @@ class Color{
         nav.querySelectorAll('.under_bar').forEach(function(item){
             item.style.background = mainColor;
         })
+        pageBtns.forEach(function(item){
+            item.style.background = '#fff'
+        })
+        pageBtn.querySelectorAll('.on').forEach(function(item){
+            item.style.background = mainColor;
+        })
         main.style.borderTopColor = this.sub;
         main.style.borderBottomColor = this.sub;
         aside.style.color = this.font;
@@ -64,7 +72,6 @@ colors[2].aboutChange()
 nav.addEventListener('click',function(e){
     //nav에 클래스 달기
     nav.querySelectorAll('li').forEach(function(item){
-        event.preventDefault()
         item.classList.remove('on');
     })
     e.target.classList.add('on');
@@ -89,7 +96,7 @@ nav.addEventListener('click',function(e){
 //about section
 //마우스 휠 이벤트
 let speedhandler = 0;
-let speed = 10;
+let speed = 5;
 $('html').on('wheel', function(e){
     if(currentSection == 0){
         if(e.originalEvent.deltaY > 0){
@@ -98,6 +105,7 @@ $('html').on('wheel', function(e){
                 speedhandler = 0
                 current++;
                 pageAnimaiton()
+                btnChange()
             }
         }else{
             speedhandler--;
@@ -105,6 +113,7 @@ $('html').on('wheel', function(e){
                 speedhandler = 0;
                 current--;
                 pageAnimaiton()
+                btnChange()
             }
         }
     }else if(currentSection == 1){
@@ -129,6 +138,21 @@ $('html').on('wheel', function(e){
         return
     }
 })
+
+//스크롤바 이벤트
+pageBtn.addEventListener('click', function(e){
+    current = e.target.dataset.num;
+    btnChange(current)
+    pageAnimaiton()
+})
+
+function btnChange(){
+    pageBtns.forEach(function(item){
+        item.classList.remove('on');
+    })
+    pageBtns[current].classList.add('on');
+}
+
 
 function pageAnimaiton(){
     //current 범위 정하기
