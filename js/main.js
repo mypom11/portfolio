@@ -89,18 +89,19 @@ nav.addEventListener('click',function(e){
 //about section
 //마우스 휠 이벤트
 let speedhandler = 0;
+let speed = 10;
 $('html').on('wheel', function(e){
     if(currentSection == 0){
         if(e.originalEvent.deltaY > 0){
             speedhandler++
-            if(speedhandler > 50){
+            if(speedhandler > speed){
                 speedhandler = 0
                 current++;
                 pageAnimaiton()
             }
         }else{
             speedhandler--;
-            if(speedhandler < -50){
+            if(speedhandler < -speed){
                 speedhandler = 0;
                 current--;
                 pageAnimaiton()
@@ -109,7 +110,7 @@ $('html').on('wheel', function(e){
     }else if(currentSection == 1){
         if(e.originalEvent.deltaY > 0){
             speedhandler++
-            if(speedhandler > 50){
+            if(speedhandler > speed){
                 currentSlide++
                 currentNum()
                 mover(currentSlide)
@@ -117,7 +118,7 @@ $('html').on('wheel', function(e){
             }
         }else{
             speedhandler--
-            if(speedhandler <-35){
+            if(speedhandler <-speed){
                 currentSlide--
                 currentNum()
                 mover(currentSlide)
