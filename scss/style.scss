@@ -220,6 +220,7 @@ body{
                     border-radius: 50%;
                     box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
                     pointer-events:auto;
+                    cursor: pointer;
                 }
             }
         }
@@ -492,8 +493,19 @@ body{
                 }
             }
             .profile_img{
-                @include size(50%, 100%);
+                @include size(45%, 100%);
+                margin-left: 5%;
                 background: #185ADB;
+                position: relative;
+                overflow: hidden;
+                li{
+                    position: absolute;
+                    @include size(100%, auto);
+                    transition: 1s;
+                    img{
+                        @include size(100%, 100%);
+                    }
+                }
             }       
         }
     }

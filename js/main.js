@@ -262,4 +262,34 @@ function contentSlide(num ,index){
 contentSlider.forEach(function(item){
     item.style.width = `${item.children.length*100}%`;
 })
+
+
 //contact section
+let profileCurrent = 0;
+const profileContainer = document.querySelector('.profile_img')
+const imgClone = profileContainer.children[0].cloneNode(true);
+profileContainer.appendChild(imgClone)
+const profileimg = document.querySelectorAll('.profile_img li')
+
+
+profileimg.forEach(function(item, index){
+    item.style.left = `${index*100}%`;
+})
+let timer = setInterval(function(){
+    profileMove()
+},5000)
+
+function profileMove(){
+    profileCurrent++
+    profileimg.forEach(function(item, index){
+        item.style.transition = '1s ease-in'
+        item.style.left = `${(index-profileCurrent)*100}%`;
+    })
+    if(profileCurrent == profileimg.length){
+        profileimg.forEach(function(item, index){
+            item.style.transition = 'none';
+            profileCurrent = 0;
+            item.style.left = `${(index-profileCurrent)*100}%`;
+        })
+    }
+}
