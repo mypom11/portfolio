@@ -1,0 +1,133 @@
+@charset 'utf-8';
+body { background:#111;  
+    width: 100%; 
+    height: 100vh; 
+    color: #fff;
+}
+#back { 
+    background: url("../img/bgLine.png") left top; 
+    opacity:0.2; 
+    width: 100%;
+    height: 100vh;  
+}
+
+h1 {
+    width: 400px; 
+    position: absolute; 
+    top: 100px;
+	left:calc(50% - 200px);
+}
+h1 img { 
+    width: 100%; 
+}
+nav { width: 100%; 
+    height: 50px; 
+    background:rgba(0,0,0,0.5); 
+	position: absolute; 
+    top: calc(50% - 25px);
+	z-index: 3;
+}
+nav > ul {
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+nav > ul > li {
+	width: 191px;
+	text-align: center;
+	position: relative;
+}
+nav > ul > li > a {
+	display: block; 
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	color: #aaa;
+	transition: 0.5s;
+}
+nav > ul > li:hover > a {
+	transform: translateY(-20px);
+	opacity: 0;
+}
+nav > ul > li:hover > div {
+	opacity: 1;
+	transform: rotateY(360deg);
+	top: -100px;
+}
+nav > ul > li > div {
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 300px; 
+	padding: 10px;
+	border: 1px solid #000;
+	position: absolute;
+	top: -50px;
+	left: 0;
+	opacity: 0;
+	transition: 0.5s;
+}
+nav li div div {
+	width: 100%;
+	height: 90px; 
+	overflow: hidden;
+	border: 1px solid #333;
+	
+}
+nav li div div img {
+	width: 120%;
+	height: auto;
+	opacity: 0.5;
+}
+nav div h2 {
+	font-size: 13px;
+	line-height: 50px;
+}
+nav div ul {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+nav div li a {
+	color: #fff;
+	display: block;
+	line-height: 36px;
+	border-top: 1px solid #111;
+}
+nav div li a:hover {
+	background: #000;
+}
+section {
+	position: absolute; 
+    width: 100%; 
+    height:500px; 
+    overflow:hidden;
+	top:calc(50% - 250px); 
+	left:0; 
+	z-index:2;
+}
+section img {
+	width: 100%;
+	height: auto;
+	position: absolute; 
+	top: -150px;
+}
+footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background: #111;
+	color: #999;
+	display: flex;
+	justify-content: space-between;
+	line-height: 50px;
+}
+footer a {
+color: #999;	
+}
+footer ul {
+	display:flex;
+}

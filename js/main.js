@@ -175,7 +175,7 @@ can.addEventListener('click',function(e){
     lists[opener].childNodes.forEach(function(item){
         item.addEventListener('mouseenter',function(e){
             imgnum = e.target.dataset.num
-            imgDom[opener].children[0].setAttribute('src',`pages/${className}/sub${imgnum}.jpg`)
+            imgDom[opener].children[0].setAttribute('src',`pages/${className}/${className+imgnum}.jpg`)
         })
     })
 })
