@@ -1,0 +1,706 @@
+@charset "utf-8";
+:root{
+    --main-color: #114c9f;
+    --sub-color: #00baff;
+}
+body{
+    font-family: "noto sans cjk kr",sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #3d3d3d;
+}
+header{
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    z-index: 10;
+}
+header h1{
+    width: 15%;
+}
+header h1 img{
+    width: 100%;
+}
+nav{
+    width: 40%;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+.menu li{
+    position: relative;
+} 
+.menu li:after{
+    display: block;
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--main-color);
+    top: 49px;
+    transform: scale(0, 1);
+    transition: 0.3s;
+}
+.menu li:hover{
+    color: var(--main-color);
+}
+.menu li:hover:after{
+    transform: scale(1.2 , 1);
+}
+header > div{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.gnb{
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+.gnb > li:first-child a::before{
+    display: block;
+    position: absolute;
+    left: -30px;
+    top: 0;
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url(../images/ico_gb.png) center center no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+}
+.gnb > li:first-child a{
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+    position: relative;
+}
+.gnb > li:first-child a:hover:before{
+    background: url(../images/ico_gb_color.png) center center no-repeat;
+    background-size: cover;
+}
+.gnb > li:nth-child(2){
+    position: relative;
+    padding-left: 10px;
+}
+.gnb > li:nth-child(2):hover ul{
+    display: block;
+}
+.gnb ul{
+    background-color: var(--main-color);
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    color: #fff;
+    font-size: 12px;
+    width: 100%;
+    padding: 0 5px;
+    display: none;
+}
+.gnb ul li{
+    padding-top: 7px;
+}
+.toggle{
+    height: 20px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.toggle span{
+    width: 100%;
+    height: 2px;
+    background: black;
+}
+.inner{
+    width: 1400px;
+    margin: 0 auto;
+}
+#visual{
+    padding-top: 80px;
+    background: url(../images/main_visual_new1.jpg) center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+.tit{
+    transform: translate(0, 70%);
+    color: #fff;
+}
+.tit h2{
+    font-size: 60px;
+    line-height: 1;
+    padding-bottom: 30px;
+}
+.bk{
+    display: block;
+}
+.tit p{
+    padding-bottom: 30px;
+}
+.visual_btn{
+    position: relative;
+}
+.visual_btn:before{
+    display: block;
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: -10px;
+    transform: translate(0, -50%);
+    transition: 0.3s;
+}
+.visual_btn:after{
+    display: block;
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: 0;
+    background: url(../images/btn_arr.png) center center no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+    transition: 0.2s 0.1s;
+}
+.visual_btn:hover:before{
+    left: 140px;
+    background: var(--sub-color);
+}
+.visual_btn:hover:after{
+    right: -50px;
+}
+.scroll{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    color: #fff;
+    animation: move 3s infinite;
+    font-size: 14px;
+}
+@keyframes move{
+    0%{
+        transform: translate(-50%,0);
+    }
+    50%{
+        transform: translate(-50%,20px);
+    }
+    100%{
+        transform: translate(-50%,0px);
+    }
+}
+#business{
+    background: url(../images/bg_sct2_1.jpg) center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 0 100px;
+    color: #fff;
+    position: relative;
+}
+#business > div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.txbox{
+    width: 25%;
+    padding: 0 50px;
+}
+#business ul li{
+    width: 33.33%;
+    padding-right: 80px;
+}
+#business .tit{
+    transform: translate(0,0);
+}
+#business ul{
+    display: flex;
+    width: 75%;
+}
+.txbox a{
+    position: relative;
+}
+.txbox a:after{
+    display: block;
+    content: "";
+    position: absolute;
+    right: -40px;
+    top: 0;
+    background: url(../images/btn_arr.png) center center no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+    transition: 0.5s;
+}
+.txbox .btn_more{
+    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    right: -50px;
+    top: -2px;
+    transition: 0.5s;
+}
+.txbox a:hover .btn_more{
+    background: var(--sub-color);
+    border: 1px solid var(--sub-color);
+    right: -60px;
+}
+.txbox a:hover:after{
+    right: -50px;
+}
+.blind{
+    display: none;
+}
+#business ul li p{
+    padding: 20px 0;
+    opacity: 0;
+    transition: 0.5s 0.5s;
+}
+#business ul li i{
+    font-style: normal;
+    font-size: 12px;
+    position: relative;
+    opacity: 0;
+    transition: 0.5s 0.5s;
+}
+#business ul li i::after{
+    display: block;
+    content: "";
+    background: url(../images/btn_arr.png) center center no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    bottom: -2px;
+    right: -40px;
+    opacity: 0;
+    transition: 0.5s 0.5s;
+}
+#business ul li::before{
+    display: block;
+    content: "";
+    width: 1px;
+    height: 50%;
+    background: #fff;
+    position: absolute;
+    top:0;
+    transition: 0.5s;
+}
+#business ul li:after{
+    display: block;
+    content: "";
+    width: 1px;
+    height: 50%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    transition: 0.5s;
+}
+#business ul em{
+    font-size: 26px;
+    font-weight: bold;
+    display: block;
+    transition: 0.5s;
+}
+#business ul strong{
+    font-size: 30px;
+    display: block;
+    font-weight: bold;
+    transition: 0.5s;
+}
+#business li:hover::before{
+    height: 20%;
+}
+#business li:hover::after{
+    height: 20%;
+}
+#business li:hover em{
+    font-size: 40px;
+    color: var(--sub-color);
+}
+#business li:hover strong{
+    font-size: 50px;
+}
+#business li:hover a > span{
+    color: var(--sub-color);
+}
+#business li:hover p{
+    opacity: 1;
+}
+#business li:hover i{
+    opacity: 1;
+}
+#business li:hover i:after{
+    opacity: 1;
+}
+#business  .on:before{
+    height: 20%;
+}
+#business  .on:after{
+    height: 20%;
+}
+#business .on em{
+    font-size: 40px;
+    color: var(--sub-color);
+}
+#business .on strong{
+    font-size: 50px;
+}
+#business .on a > span{
+    color: var(--sub-color);
+}
+#business .on p{
+    opacity: 1;
+}
+#business .on i{
+    opacity: 1;
+}
+#business .on i:after{
+    opacity: 1;
+}
+#susta{
+    background: url(../images/bg_sct3.jpg) center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+#susta ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
+    gap: 30px;
+}
+#susta li{
+    padding: 20px;
+    color: #fff;
+    position: relative;
+}
+#susta li:first-child{
+    grid-area: 1/1/2/3;
+}
+#susta li:nth-child(2){
+    grid-area: 1/3/2/5;
+    background: url(../images/bg_sct3_1.jpg) right center no-repeat;
+    background-size: cover;
+}
+#susta li:nth-child(3){
+    background: #2489ca;
+}
+#susta li:nth-child(4){
+    background: #5d7081;
+}
+#susta li:nth-child(5){
+    background: url(../images/bg_sct3_2.jpg) center center no-repeat;
+    background-size: cover;
+}
+#susta li:nth-child(6){
+    background: #0054a6;
+}
+#susta .tit{
+    transform: translate(0,0);
+    color: black;
+}
+#susta .btn_more{
+    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    transition: 0.5s;
+    right: 30px;
+    bottom: 30px;
+}
+#susta .btn_more:before{
+    display: block;
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 1px;
+    background: url(../images/btn_arr.png) center center no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+}
+#susta h3{
+    padding: 20px 0;
+    font-size: 18px;
+}
+#susta li:hover .btn_more{
+    background: var(--sub-color);
+    border: 1px solid var(--sub-color);
+    right: 20px;
+}
+#media{
+    height: 100vh;
+    background: #f0f0f0;
+}
+#media .inner{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 100px;
+}
+#media .tit{
+    transform: translate(0,0);
+    color: #3d3d3d;
+}
+#media > div > div li{
+    padding: 30px 60px;
+    position: relative;
+}
+#media > div > div li:before{
+    display: block;
+    content: "";
+    width: 50px;
+    height: 50px;
+    background: url(../images/ico_sct3.png) left top no-repeat;
+    background-size: 360px;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    transition: 0.5s;
+}
+#media > div > div li:nth-child(2):before{
+    background: url(../images/ico_sct3.png) -50px top no-repeat;
+    background-size: 360px;
+}
+#media > div > div li:nth-child(3):before{
+    background: url(../images/ico_sct3.png) -100px top no-repeat;
+    background-size: 360px;
+}
+#media > div > div li:nth-child(1):hover::before{
+    background-position: left bottom;
+}
+#media > div > div li:nth-child(2):hover::before{
+    background-position: -50px bottom;
+}
+#media > div > div li:nth-child(3):hover::before{
+    background-position: -100px bottom;
+}
+#media > div{
+    height: 100%;
+}
+#media > div > ul{
+    width: 70%;
+    position: relative;
+    font-size: 18px;
+}
+#media > div > ul ul{
+    position: absolute;
+    top: 0;
+    left: 120px;
+}
+#media > div > ul::before{
+    position: absolute;
+    content: "";
+    display: block;
+    height: 2px;
+    background: var(--main-color);
+    width: 60px;
+    left: 80px;
+    top: 10px;
+    z-index: 1;
+}
+#media > div > ul ul li{
+    margin-bottom: 10px;
+}
+#media > div > ul ul li p{
+    padding: 10px 0;
+}
+#media > div > ul ul li span{
+    font-size: 12px;
+}
+#media > div > ul ul li:nth-child(1){
+    background: url(../images/news1.jpg) left top no-repeat;
+    background-size: 240px auto;
+}
+#media > div > ul ul li:nth-child(2){
+    background: url(../images/new2.jpg) left top no-repeat;
+    background-size: 240px auto;
+}
+#media > div > ul ul li:nth-child(3){
+    background: url(../images/news3.jpg) left top no-repeat;
+    background-size: 240px auto;
+}
+#media > div > ul ul li > div{
+    position: relative;
+    left: 240px;
+    padding: 25px 40px;
+    font-size: 14px;
+    background: #fff;
+}
+#media > div > ul ul div div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--main-color);
+    line-height: 1;
+    padding: 5px;
+    color: #fff;
+    font-size: 12px;
+}
+#relations{
+    height: 100vh;
+    background: url(../images/bg_sct4.jpg) center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center
+}
+#relations > div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+}
+#relations .tit{
+    grid-area: 1/1/2/3;
+    transform: translate(0,0);
+    border-bottom: 1px solid #fff;
+}
+#relations h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+}
+.left{
+    color:#fff;
+    text-align: center;
+    padding-right: 40px;
+    border-right: 1px solid #fff;
+}
+.left ul{
+    display: flex;
+}
+.left ul li{
+    width: 25%;
+    padding: 15px 0;
+    border: 1px solid #fff;
+}
+.left ul li:hover{
+    background: #fff;
+    color: #000;
+}
+.left ul li:hover i{
+    background-position: left bottom;
+}
+.left ul li:nth-child(2):hover i{
+    background-position: -30px bottom;
+}
+.left ul li:nth-child(3):hover i{
+    background-position: -60px bottom;
+}
+.left ul li:nth-child(4):hover i{
+    background-position: -90px bottom;
+}
+.left ul li i{
+    margin: 10px auto;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(../images/ico_sct4.png) left top no-repeat;
+    background-size: auto 60px;
+}
+.left ul li:nth-child(2) i{
+    background-position: -30px top;
+}
+.left ul li:nth-child(3) i{
+    background-position: -60px top;
+}
+.left ul li:nth-child(4) i{
+    background-position: -90px top;
+}
+#relations .btn_more{
+    display: inline-block;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    transition: 0.5s;
+    right: 0px;
+    bottom: 0px;
+}
+#relations .btn_more:before{
+    display: block;
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 1px;
+    background: url(../images/btn_arr.png) center center no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 20px;
+}
+#relations .btn_more:hover{
+    background: var(--sub-color);
+    border: 1px solid var(--sub-color);
+    right: -10px;
+}
+.right{
+    padding: 0 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+footer{
+    background: #141414;
+    color: #c5c5c5;
+}
+footer > div:nth-child(1){
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 30px 0;
+}
+footer div div ul{
+    display: flex;
+}
+footer div:nth-child(1) div ul li{
+    padding: 0 20px;
+    line-height: 1;
+    border-right: 1px solid #333;
+}
+footer div:nth-child(1) div ul li:last-child{
+    border-right: 0;
+}
+footer > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+footer > div:nth-child(2) li{
+    padding: 10px 20px;
+    width: 150px;
+}
+footer > div:nth-child(2) li:nth-child(1){
+    background: url(../images/btn_apply.jpg) center center no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+}
+footer > div:nth-child(2) li:nth-child(2){
+    background: #333;
+}
+footer > div:nth-child(2) span{
+    font-size: 0;
+    background: url(../images/logo_wa.png) center center no-repeat;
+    background-size: cover;
+    display: block;
+    width: 117px;
+    height: 80px;
+    margin-top: 20px;
+    float: right;
+}

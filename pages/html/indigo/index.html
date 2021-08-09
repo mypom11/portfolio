@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>인디고사이트</title>
+	<link rel="shortcut icon" href="images/myfavicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/myfavicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style2.css" type="text/css">
+	<link rel="stylesheet" href="css/swiper.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		function menuView(){
+			document.querySelector('.menu').classList.toggle('on');
+		}
+	</script>
+</head>
+<body>
+	
+	<header>
+		<h1>INDIGO</h1>
+		<ul class="bigs">
+			<li><a href="#">HOME</a></li>
+			<li><a href="#">WE ARE</a></li>
+			<li><a href="#">WORK</a></li>
+			<li><a href="#">BLOG</a></li>
+			<li><a href="#">CONTACT US</a></li>
+		</ul>
+		<div class="mids" onclick="menuView()">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a href="#">WE ARE</a></li>
+				<li><a href="#">WORK</a></li>
+				<li><a href="#">BLOG</a></li>
+				<li><a href="#">CONTACT US</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="content">
+		<section class="visual">
+			
+			<!-- Swiper -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="images/p-images/slide01.jpg" alt=""></div>
+					<div class="swiper-slide"><img src="images/p-images/slide01.jpg" alt=""></div>
+					<div class="swiper-slide"><img src="images/p-images/slide01.jpg" alt=""></div>
+					<div class="swiper-slide"><img src="images/p-images/slide01.jpg" alt=""></div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		
+			<!-- Swiper JS -->
+			<script src="js/swiper.min.js"></script>
+		
+			<!-- Initialize Swiper -->
+			<script>
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+				paginationClickable: true,
+				spaceBetween: 0,
+				centeredSlides: true,
+				autoplay: 2500,
+				autoplayDisableOnInteraction: false
+			});
+			</script>
+		</section>
+		<section class="weare inner">
+			<div class="title">
+				<h2>WE ARE</h2>
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
+			</div>
+			<ul>
+				<li>
+					<div><img src="images/s-images/promo01.png" alt=""></div>
+					<h3>HOME</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</li>
+				<li>
+					<div><img src="images/s-images/promo02.png" alt=""></div>
+					<h3>WE ARE</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</li>
+				<li>
+					<div><img src="images/s-images/promo03.png" alt=""></div>
+					<h3>WORK</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</li>
+				<li>
+					<div><img src="images/s-images/promo04.png" alt=""></div>
+					<h3>BLOG</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</li>
+			</ul>
+		</section>
+		<section class="work">
+			<div class="title inner">
+				<h2>WORK</h2>
+			</div>
+			<ul>
+				<li>
+					<img src="images/p-images/work01.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Running</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work02.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Rugby</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work03.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>info</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work04.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Marathon</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work05.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Boxing</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work06.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Ice Hockey</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work07.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Skate Board</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<img src="images/p-images/work08.jpg" alt="">
+					<div class="blueback">
+						<div>
+							<h3>Basketbal</h3>
+							<p>WEB/PRINT</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="blog inner">
+			<div class="title">
+				<h2>BLOG</h2>
+			</div>
+			<ul>
+				<li>
+					<img src="images/p-images/blog01.jpg" alt="">
+					<span>OCT 30.2016</span>
+					There are many variations of passages of Lorem Ipsum
+				</li>
+				<li>
+					<img src="images/p-images/blog02.jpg" alt="">
+					<span>OCT 30.2016</span>
+					There are many variations of passages of Lorem Ipsum
+				</li>
+				<li>
+					<img src="images/p-images/blog03.jpg" alt="">
+					<span>OCT 30.2016</span>
+					There are many variations of passages of Lorem Ipsum
+				</li>
+			</ul>
+		</section>
+		<section class="contact inner">
+			<div class="title">
+				<h2>CONTACT</h2>
+			</div>
+			<div class="form">
+				<div>
+				<input type="text" placeholder="Name" id="name" name="name">
+				<input type="text" placeholder="Phone" id="phone" name="phone">
+				<input type="text" placeholder="Email Address" id="emailadd" name="emailadd">
+				<textarea name="message" id="message" placeholder="Message" cols="30" rows="5"></textarea>
+				</div>
+				<div>
+					<button type="button">SEND MESSAGE</button>
+				</div>
+			</div>
+			
+		</section>
+	</div>
+	<footer>INDIGO</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="canvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.querySelector('.canvas');
+        const ctx = canvas.getContext('2d');
+        const boxes = [];
+        ctx.font = 'bold 20px sans-serif'
+
+        class Box {
+            constructor(index, x, y, speed){
+                this.index = index;
+                this.x = x;
+                this.y = y;
+                this.speed = speed;
+                this.width = 100;
+                this.height = 100;
+                this.draw();
+            }
+            draw(){
+                ctx.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.fillStyle='#fff';
+                ctx.fillText(this.index, this.x+50, this.y+50);
+            }
+        }
+        function render(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            let box;
+            for(let i=0; i<boxes.length; i++){
+                box = boxes[i];
+                box.x += box.speed;
+                if(box.x > canvas.width){
+                    box.x = -box.x
+                }
+                box.draw();
+            }
+            requestAnimationFrame(render);
+        }
+        render()
+        for(let i=0; i < 10; i++){
+            let tempX, tempY, tempSpeed;
+            tempSpeed = Math.random()*5 + 1;
+            tempX = Math.random() * (canvas.width * 0.8);
+            tempY = Math.random() * (canvas.width * 0.8);
+            boxes.push(new Box(i, tempX, tempY, tempSpeed))
+        }
+
+        
+    </script>
+</body>
+</html>

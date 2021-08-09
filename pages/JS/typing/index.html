@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .header{
+            width: 100%;
+            background: pink;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+        }
+        #word-display{
+            margin-top: 60px;
+            font-size: 80px;
+            color: pink
+        }
+        #word-input-box{
+            margin-top: 30px;
+        }
+        #word-input{
+            padding: 16px;
+            width: 300px;
+        }
+        #game-info{
+            display: flex;
+            margin-top: 30px;
+            width: 30%;
+            justify-content: space-between;
+        }
+        span{
+            font-size: 28px;
+            font-weight: bold;
+        }
+        button{
+            border:none;
+            margin-top: 30px ;
+            background: pink;
+            color: #ffff;
+            width: 200px;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>타자게임</h1>
+    </div>
+    <div id="word-display">Hello</div>
+    <div id="word-input-box"><input type="text" id = "word-input"></div>
+    <div id="game-info">
+        <div> 남은시간: <span class="time">0</span>초</div>
+        <div> 획득점수: <span class="score">0</span>점</div>
+    </div>
+    <button>게임시작</button>
+    <script>
+        //사용변수
+        let wordInput = document.querySelector('#word-input');
+        let wordDisplay = document.querySelector('#word-display');
+        let timeDisplay = document.querySelector('.time');
+        let scoreDisplay = document.querySelector('.score');
+        let btn = document.querySelector('button')
+        
+        let score = 0;
+        let time = 10;
+        let isPlaying = false;
+        let timeInterval;
+        // let textArr = ['apple','html','web','horse','design','jquery','php','banana','pear','long','helloworld','bag','chair']
+        
+        let textArr = []
+        
+        const gettextArr = async () => {
+        try{
+        const url = 'https://random-word-api.herokuapp.com/word?number=100';
+        const response = await axios.get(url);
+        response.data.forEach(word => {
+            if(word.length < 10){
+                textArr.push(word);
+            }
+        });
+        console.log(textArr)
+        }
+            catch (error){
+                console.error(error);
+            }
+        }
+        let textIndex = Math.floor(Math.random()*textArr.length)
+        //게임시작
+        gettextArr()
+        function run(){
+            time = 10;
+            score = 0; 
+            isPlaying = true; 
+            wordInput.focus();
+            wordDisplay.innerText = textArr[textIndex];
+            timeDisplay.innerText = time;
+            timeInterval = setInterval(countDown,1000);
+            wordInput.addEventListener('input',checkMath)
+            buttonChange('게임중');
+        }
+        // input의 value값이 wordDisplay의 단어와 일치하는지 비교
+        // 일치하면 input의 value = '', score +1
+        function checkMath(){
+            if(wordInput.value == wordDisplay.innerText){
+                if(isPlaying){
+                    wordInput.value='';
+                    score++;
+                    scoreDisplay.innerText = score;
+                    textIndex = Math.floor(Math.random()*textArr.length);
+                    wordDisplay.innerText = textArr[textIndex];
+                }
+            }
+        }
+        //10초동안 게임을 진행 0초가 되면 게임종료
+        function countDown(){
+            time > 0 ? time-- : isPlaying = false;
+            if(!isPlaying){
+            clearInterval(timeInterval);
+            buttonChange('게임시작')
+        }
+            timeDisplay.innerText = time;
+        }
+        btn.addEventListener('click',run)
+
+        function buttonChange(text){
+            btn.innerText = text;
+            if(text == '게임중'){
+                btn.disabled = true;
+            }else{
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

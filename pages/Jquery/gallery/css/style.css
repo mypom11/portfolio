@@ -1,0 +1,140 @@
+@import url("http://fonts.googleapis.com/css?family=Poiret+One");
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ol, ul { list-style: none; }
+a { text-decoration: none; }
+body { width: 100%; height: 4600px; font-family: poiret one;
+	background: #ddd;
+}
+
+/* 로고 */
+h1 { position: fixed; top: 20px; right: 20px; }
+h1 img {
+	box-shadow: 5px 5px 3px #888;
+}
+
+/* 메뉴 */
+#nav { position: fixed; left: 60px; top: calc(50% - 280px);
+	background: tomato; display: flex;
+}
+#nav li {
+	font-size: 16px; font-weight: bold;
+	color: #fff; margin-right: 25px; 
+}
+#nav li:hover { color:#888; }
+#nav li.on { color:#888; }
+
+/* 글자부분 */
+.txt { position: fixed; top: calc(50% - 80px); 
+	text-align: right; line-height: 0.5; right: 20px;
+	font-size: 100px; color:#fff;
+}
+.txt span { color:#aaa; }
+.txt em { font-family: arial; font-size: 18px; color: #888;
+	letter-spacing: 1px; font-style: normal;
+}
+
+/* 이미지리스트 */
+.imgwrap {
+	position: fixed;
+	top: calc(50% - 200px);
+	width: 4600px;
+	height: 400px;
+	display: flex;
+}
+.imgwrap li {
+	position: relative;
+	width: 180px; 
+	margin: 10px;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px #bbb;
+	overflow: hidden;
+	top:50%;
+	transition: 0.5s;
+	transform: translateY(-50%);
+}
+.imgwrap li h3 {
+	position: absolute;
+	top: 300px;
+	right: 0;
+	width: 100%;
+	height: 50px;
+	padding-left: 20px;
+	background: #111;
+	opacity: 0.4;
+	transition: 0.5s;
+	z-index: 2;
+}
+.imgwrap li h3 a {
+	font-size: 14px; font-weight: bold; line-height: 3.5;
+	color: #fff; letter-spacing: 2px; transition: 0.5s;
+}
+.imgwrap li:hover h3 {
+	opacity: 1;
+}
+.soimg {
+	display: block;
+	position: absolute;
+	left:0;
+	top:0;
+	width: 100%;
+	opacity: 0.4;
+	transition: 0.5s;
+}
+.soimg img {
+	height: 300px;
+	width: auto;
+}
+.imgwrap li:hover .soimg {
+	opacity: 1;
+}
+/* 큰이미지 */
+.imgwrap li p {
+	position: absolute; top:50%;
+	text-align: center;
+	overflow: hidden;
+	background: #fff;
+	width: 100%;
+	height: 0;
+	right:0;
+}
+.imgwrap p img {
+	height: 100%; width: auto;
+}
+.imgwrap em {
+	position: absolute;
+	bottom: 50px; 
+	right: -300px;
+	display: inline-block;
+	padding: 10px 20px;
+	transition: 1s;
+}
+/* 닫기메뉴 */
+.imgwrap .close {
+	position: absolute;
+	top: 110px; right: -300px; font-size: 20px;
+	color: #fff; 
+	z-index: 4;
+}
+/* 클릭시 변경된 스타일 */
+.imgwrap li.on {
+	width: 780px; height: 500px; top: 50%;
+	transform: translateY(-50%);
+}
+.imgwrap li.on h3 {
+	top: 100px; height: 100px; background: #111; opacity: 0.3;
+	width: 100%;
+}
+.imgwrap li.on a {
+	font-size: 30px; color: #fff;
+}
+.imgwrap li.on .soimg {
+	display: none;
+}
+.imgwrap li.on p {
+	height: 500px; opacity:1; 
+	margin-top:-250px;
+}
+.imgwrap li.on em {
+right:20px; }
+.imgwrap li.on .close { right:20px;}

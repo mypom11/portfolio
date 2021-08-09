@@ -140,7 +140,7 @@ body{
                 display: flex;
                 @include position(0, 0, relative);
                 transition: 0.5s;
-                li{
+                >li{
                     width: 100vw;
                     height: 100%;
                     @include flex;
@@ -150,29 +150,121 @@ body{
                         .video{
                             background: #fff;
                             padding: vw(40) vw(40);
-                        }
-                        h3{
-                            @include font(rem(40), bolder, #F7BE16);
-                            margin-bottom: vw(40);
-                            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-                        }
-                        ul{
-                            @include flex;
-                            margin-bottom: vw(100);
-                            img{
-                                @include size;
+                            h3{
+                                @include font(rem(40), 900, #293462);
+                                margin-bottom: vw(40);
+                                text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
                             }
-                            &:nth-of-type(1){
-                                width: vw(1000);
-                                li{
-                                    @include size(vw(100),auto)
+                            ul{
+                                @include flex;
+                                margin-bottom: vw(100);
+                                pointer-events: none;
+                                img{
+                                    @include size;
+                                    pointer-events: none;
+                                }
+                                &:nth-of-type(1){
+                                    width: vw(1000);
+                                    li{
+                                        cursor: pointer;
+                                        pointer-events: auto;
+                                        @include size(vw(100),auto)
+                                    }
+                                }
+                                &:nth-of-type(2){
+                                    width: vw(400);
+                                    li{
+                                        opacity: 0.5;
+                                        @include size(vw(60),auto)
+                                    }
                                 }
                             }
-                            &:nth-of-type(2){
-                                width: vw(400);
-                                li{
-                                    opacity: 0.5;
-                                    @include size(vw(60),auto)
+                        }
+                        .depth{
+                            visibility: hidden;
+                            opacity: 0;
+                            @include position(0, 0);
+                            background: rgba(0,0,0,0.9);
+                            @include size;
+                            transition: 0.5s ease-in;
+                            .cancel{
+                                @include size(40px,40px);
+                                display:block;
+                                @include background('icons/cancel.png');
+                                @include position($r:18%, $t:7%);
+                                pointer-events: auto;
+                                cursor: pointer;
+                                z-index: 10;
+                            }
+                            > div{
+                                visibility: hidden;
+                                @include size(vw(1280),100%);
+                                @include position(0, 50%);
+                                transform: translateX(-50%);
+                                @include flex;
+                                flex-wrap: wrap;
+                                h3{
+                                    width: 100%;
+                                    @include font(rem(50), bold, #fff);
+                                    text-align: center;
+                                }
+                                .list{
+                                    @include size(40%,70%);
+                                    padding-left: 10%;
+                                    li{
+                                        margin-bottom: 10%;
+                                        @include font(rem(30), bold, #ccc);
+                                    }
+                                }
+                                .subimg{
+                                    @include size(60%, 70%);
+                                    img{
+                                        @include size(100%, auto);
+                                    }
+                                }
+                                .slideContainer{
+                                    position: relative;
+                                    @include size(100%, 80%);
+                                    overflow: hidden;
+                                    ul{
+                                        position: relative;
+                                        display: flex;
+                                        left: 0;
+                                        transition: 0.5s;
+                                        @include size(300%, 100%);
+                                        li{
+                                            @include size;
+                                            text-align: center;
+                                            img{
+                                                @include size(auto, 100%);
+                                            }
+                                        }
+                                    }
+                                    .containerBtn{
+                                        span{
+                                            display: block;
+                                            @include size(40px, 40px);
+                                            position: absolute;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            cursor: pointer;
+                                            &:nth-child(1){
+                                                left: 0;
+                                                @include background('icons/btn_left.png')
+                                            }
+                                            &:nth-child(2){
+                                                right: 0;
+                                                @include background('icons/btn_right.png')
+                                            }
+                                        }
+                                    }
+                                }
+                                .videos{
+                                    @include size(100%, 80%);
+                                    video{
+                                        @include size;
+                                        object-fit:fill;
+                                    }
                                 }
                             }
                         }
@@ -228,7 +320,6 @@ body{
             }
         }
         #project{
-            display: block;
             @include position(0,0);
             @include size;
             .slider{

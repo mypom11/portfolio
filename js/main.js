@@ -74,6 +74,9 @@ nav.addEventListener('click',function(e){
     nav.querySelectorAll('li').forEach(function(item){
         item.classList.remove('on');
     })
+    texts.forEach(function(item){
+        item.classList.remove('on')
+    })
     e.target.classList.add('on');
     //currentSection 수정
     currentSection = e.target.dataset.section
@@ -83,7 +86,13 @@ nav.addEventListener('click',function(e){
     })
     section[currentSection].classList.add('on');
     //section 배경 가져오기
-    if(currentSection != 0){
+    if(currentSection == 1){
+        texts[0].classList.add('on')
+        colors[currentSection-1].bgChange();
+        videos.forEach(function(item){
+            item.pause()
+        })
+    }else if(currentSection != 0){
         colors[currentSection-1].bgChange();
         videos.forEach(function(item){
             item.pause()
@@ -138,6 +147,66 @@ $('html').on('wheel', function(e){
         return
     }
 })
+
+//skills 탭 이벤트
+const can = document.querySelector('.can');
+const skill = document.querySelector('.depth');
+const skills = document.querySelectorAll('.depth > div');
+const cancel = document.querySelector('.cancel');
+const subImg = document.querySelectorAll('.subimgs');
+const containerBtn = document.querySelectorAll('.containerBtn');
+const lists = document.querySelectorAll('.lists');
+const imgDom = document.querySelectorAll('.subimg');
+
+subImg.forEach(function(item){
+    item.style.width = `${item.children.length*100}%`
+})
+let opener = 0;
+let currentSub=0;
+
+can.addEventListener('click',function(e){
+    opener = e.target.dataset.num;
+    skill.style.visibility = 'visible'
+    skill.style.opacity = '1'
+    skills[opener].style.visibility = 'visible'
+    className = skills[opener].className
+    nav.style.display = 'none';
+    pageBtn.style.display = 'none'
+    lists[opener].childNodes.forEach(function(item){
+        item.addEventListener('mouseenter',function(e){
+            imgnum = e.target.dataset.num
+            imgDom[opener].children[0].setAttribute('src',`pages/${className}/sub${imgnum}.jpg`)
+        })
+    })
+})
+cancel.addEventListener('click',function(){
+    skill.style.visibility = 'hidden'
+    skill.style.opacity = '0'
+    skills.forEach(function(item){
+        item.style.visibility = 'hidden'
+    })
+    nav.style.display = 'flex';
+    pageBtn.style.display = 'flex'
+    currentSub = 0;
+})
+
+containerBtn.forEach(function(item){
+    item.addEventListener('click',function(e){
+       if(e.target.classList[0] == 'right'){
+           if(currentSub >= 0 && currentSub < subImg[opener-3].children.length-1){
+            currentSub++
+            subImg[opener-3].style.left = `${-currentSub*100}%`
+           }
+       }else{
+           if(currentSub < subImg[opener-3].children.length && currentSub > 0){
+            currentSub--
+            subImg[opener-3].style.left = `${-currentSub*100}%`
+           }
+       }
+    })
+})
+
+
 
 //스크롤바 이벤트
 pageBtn.addEventListener('click', function(e){
@@ -225,7 +294,7 @@ function mover(current) {
     texts.forEach(function(item){
         item.classList.remove('on')
     })
-    texts[current].classList.toggle('on');
+    texts[current].classList.add('on');
 }
 
 

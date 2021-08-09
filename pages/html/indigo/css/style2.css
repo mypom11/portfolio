@@ -1,0 +1,368 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+address {
+    font-style: normal;
+}
+
+li,
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    color: #444;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -1px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.mids {
+    display: none;
+}
+
+.inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+header > ul {
+    display: flex;
+}
+
+header > ul > li {
+    padding: 0 20px;
+    font-size: 18px;
+}
+.menu {
+    background-color:  #3f51b4;
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: 10;
+    transition: 0.5s;
+}
+.menu.on{
+    height: 200px;
+}
+.visual img {
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title h2 {
+    font-size: 38px;
+    color: #3f51b4;
+    width: 30%;
+}
+
+.title p {
+    position: relative;
+    padding-left: 20px;
+
+}
+
+.title p::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 40px;
+    background: #ddd;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.weare ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.weare ul li {
+    width: 25%;
+    text-align: center;
+    padding: 20px;
+}
+
+.weare ul li div {
+    height: 80px;
+}
+
+.weare ul li img {
+    width: 25%;
+}
+
+.weare ul li h3 {
+    color: #3f51b4;
+    padding: 20px 0 30px;
+}
+
+.work ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.work ul li {
+    width: 25%;
+    position: relative;
+}
+
+.work ul li img {
+    width: 100%;
+}
+
+.blueback {
+    width: 100%;
+    height: 100%;
+    background: rgba(63, 81, 171, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.work ul li:hover .blueback {
+    background: rgba(63, 81, 171, 0.8);
+}
+
+.work ul li:hover .blueback div {
+    top: 50px;
+}
+
+.blueback div {
+    position: absolute;
+    top: -200px;
+    left: 50px;
+    transition: 0.5s;
+}
+
+.blueback div h3 {
+    font-size: 28px;
+}
+
+.blog {
+    display: flex;
+}
+
+.blog .title {
+    width: 30%;
+}
+
+.blog ul {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog ul li {
+    width: 32.5%;
+}
+
+.blog ul li img {
+    width: 100%;
+}
+
+.blog span {
+    display: block;
+    padding: 10px 0;
+}
+
+.contact {
+    display: flex;
+}
+
+.contact .title {
+    width: 30%;
+}
+
+.form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.form > div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 100%;
+}
+
+input,
+textarea {
+    border: 0;
+}
+
+.form button {
+    width: 200px;
+    line-height: 50px;
+    background: #3f51b4;
+    color: #fff;
+    border: 0;
+}
+
+.form input,
+.form textarea {
+    width: 48%;
+    border-bottom: 1px solid #444;
+}
+
+.form input {
+    height: 60px;
+}
+
+.form textarea {
+    height: 180px;
+}
+
+footer {
+    text-align: center;
+    height: 100px;
+    padding-top: 30px;
+    font-size: 24px;
+}
+
+@media all and (max-width:960px) {
+    .title {
+        flex-direction: column;
+    }
+
+    .title h2 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .title p {
+        padding: 0 30px;
+    }
+
+    .title p::before {
+        display: none;
+    }
+
+    .weare ul li {
+        width: 50%;
+    }
+
+    .work ul li {
+        width: 50%;
+    }
+
+    .blog {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blog .title {
+        width: 100%;
+    }
+
+    .blog ul {
+        width: 100%;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+    }
+    .contact .title {
+        width: 100%;
+    }
+    .form {
+        width: 100%;
+    }
+}
+@media all and (max-width:768px){
+    .bigs {
+        display: none;
+    }
+    .mids {
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 15px 10px;
+    }
+    .mids span {
+        display: block;
+        width:100%;
+        height: 4px;
+        background: #3f51b4;
+        margin-bottom: 4px;
+    }
+    .weare ul li {
+        width: 100%;
+    }
+
+    .work ul li {
+        width: 100%;
+    }
+    .weare ul li div {
+        height: auto;
+    }
+    .blog ul {
+        flex-direction: column;
+    }
+    .blog ul li {
+        width: 100%;
+    }
+    .form > div:nth-child(1) {
+    height: 500px;
+    width: 100%;
+    align-items: center;
+    }
+    .form input,
+.form textarea {
+    width: 90%;
+    border-bottom: 1px solid #444;
+    }
+
+}
+

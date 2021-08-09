@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: "noto sans cjk kr",sans-serif;
+            font-size: 14px;
+            padding: 50px;
+            color: #fff;
+        }
+        #box{
+            margin: 0 auto;
+            width: 80%;
+            height: 800px;
+            padding: 2px;
+            border: 1px solid burlywood;
+        }
+        #top{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            height: 60%;
+            background: burlywood;
+            border: 2px solid #fff;
+        }
+        #top h1{
+            display: flex;
+            justify-content: space-between;
+            width: 25%;
+        }
+        #top > div{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+        #top > div > div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+        #top div .black{
+            width: 200px;
+            margin-top: 20px;
+        }
+        .black{
+            margin: 0 auto;
+            background: black;
+            width: 80px;
+            height: 40px;
+        }
+        #bottom{
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+            align-items: center;
+            height: 40%;
+            background: chocolate;
+        }
+        #bottom button{
+            width: 80px;
+            height: 40px;
+            margin-top: 20px;
+        }
+    </style>
+    <script defer src="js/quiz7.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div id="top">
+            <h1>남은 슛 횟수
+                <div class="left black">
+                </div>
+            </h1>
+            <div>
+                <div>
+                    <h2>Computer</h2>
+                    <div class="comscore black"></div>
+                </div>
+                <div>
+                    <h2>Player</h2>
+                    <div class="plscore black"></div>
+                </div>
+            </div>
+            <h2 class="sub"></h2>
+        </div>
+        <div id="bottom">
+            <div>
+                <h3>Computer</h3>
+                <button class="com">슛하기</button>
+            </div>
+            <div>
+                <h3>Player</h3>
+                <button class="player2">2점슛</button>
+                <button class="player3">3점슛</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
